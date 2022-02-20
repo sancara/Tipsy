@@ -11,6 +11,8 @@ import UIKit
 class ResultsViewController: UIViewController {
     
     var total: Float?
+    var numPeople: Float?
+    var tip: Float?
     
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
@@ -21,6 +23,7 @@ class ResultsViewController: UIViewController {
 
         totalLabel.text = String(format: "%.2f", total!)
         // Do any additional setup after loading the view.
+        settingsLabel.text = "Split between \(numPeople ?? 0.0) people, with \(tip ?? 0.0)% tip."
     }
     
     
@@ -28,14 +31,5 @@ class ResultsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

@@ -68,6 +68,8 @@ class CalculatorViewController: UIViewController {
         if segue.identifier == "goToDivide" {
             let destinationVC = segue.destination as! ResultsViewController
             destinationVC.total = totalPerPerson
+            destinationVC.tip = tipAmount
+            destinationVC.numPeople = splitedBy
         }
     }
     
