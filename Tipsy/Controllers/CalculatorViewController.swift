@@ -52,12 +52,17 @@ class CalculatorViewController: UIViewController {
     @IBAction func calculatePressed(_ sender: UIButton) {
         let total = Float(billTextField.text ?? "0.0")
         let totalBill = total ?? 1.0 / splitedBy * tipAmount
-        print(total)
-        print(totalBill)
         
-        performSegue(withIdentifier: "goToDivide", sender: nil)
+        
+        self.performSegue(withIdentifier: "goToDivide", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDivide" {
+            let destinationVC = segue.destination
+            //destinationVC.totalValue
+        }
+    }
     
 }
 

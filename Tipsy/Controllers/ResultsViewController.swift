@@ -9,7 +9,9 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-
+    
+    var total: Float?
+    
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
     
