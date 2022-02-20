@@ -19,7 +19,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        totalLabel.text = "\(total ?? 0.0)"
+        totalLabel.text = String(format: "%.2f", total!)
         // Do any additional setup after loading the view.
     }
     

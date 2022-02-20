@@ -6,4 +6,12 @@
 //  Copyright © 2022 The App Brewery. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct TipsyBrain {
+    
+    func calculateTotalPerPerson(total: Float, tip: Float, numPerson: Float) -> Float {
+        let totalBill = total / numPerson * tip
+        return totalBill
+    }
+}

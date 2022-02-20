@@ -16,29 +16,36 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var splitNumberLabel: UILabel!
     
+    var tipsyBrain = TipsyBrain()
+    
     var tipAmount:Float = 1.0
     var splitedBy:Float = 2.0
     var totalPerPerson:Float = 0.0
 
     @IBAction func tipChanged(_ sender: UIButton) {
         
-        switch sender.currentTitle {
-            case "10%":
-                zeroPctButton.isSelected = false
-                tenPctButton.isSelected = true
-                twentyPctButton.isSelected = false
-                tipAmount += 0.1
-            case "20%":
-                zeroPctButton.isSelected = false
-                tenPctButton.isSelected = false
-                twentyPctButton.isSelected = true
-                tipAmount += 0.2
-            default:
-                zeroPctButton.isSelected = true
-                tenPctButton.isSelected = false
-                twentyPctButton.isSelected = false
-                tipAmount += 0.0
+        if sender.currentTitle == "10%" {
+            
+            zeroPctButton.isSelected = false
+            tenPctButton.isSelected = true
+            twentyPctButton.isSelected = false
+            tipAmount += 0.1
+            
+        } else if sender.currentTitle == "20%"{
+            
+            zeroPctButton.isSelected = false
+            tenPctButton.isSelected = false
+            twentyPctButton.isSelected = true
+            tipAmount += 0.2
+            
+        } else {
+            
+            zeroPctButton.isSelected = true
+            tenPctButton.isSelected = false
+            twentyPctButton.isSelected = false
+            tipAmount += 0.0
         }
+        
         
     }
     
@@ -51,11 +58,9 @@ class CalculatorViewController: UIViewController {
     
     
     @IBAction func calculatePressed(_ sender: UIButton) {
-        let total = Float(billTextField.text ?? "0.0")
-        let totalBill = total ?? 1.0 / splitedBy * tipAmount
-        totalPerPerson = totalBill
+        let total:Float = Float(billTextField.text ?? "0.0")!
         
-        
+        totalPerPerson = tipsyBrain.calculateTotalPerPerson(total: total, tip: tipAmount, numPerson: splitedBy)
         self.performSegue(withIdentifier: "goToDivide", sender: self)
     }
     
