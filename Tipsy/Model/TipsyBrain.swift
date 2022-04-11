@@ -11,7 +11,7 @@ import UIKit
 struct TipsyBrain {
     
     func calculateTotalPerPerson(total: Float, tip: Float, numPerson: Float) -> Float {
-        let totalBill = total / numPerson * tip
+        let totalBill = (total / numPerson) + (total * tip)
         return totalBill
     }
 }

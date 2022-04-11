@@ -18,7 +18,7 @@ class CalculatorViewController: UIViewController {
     
     var tipsyBrain = TipsyBrain()
     
-    var tipAmount:Float = 1.0
+    var tipAmount:Float = 0.0
     var splitedBy:Float = 2.0
     var totalPerPerson:Float = 0.0
 
@@ -29,21 +29,21 @@ class CalculatorViewController: UIViewController {
             zeroPctButton.isSelected = false
             tenPctButton.isSelected = true
             twentyPctButton.isSelected = false
-            tipAmount += 0.1
+            tipAmount = 0.1
             
         } else if sender.currentTitle == "20%"{
             
             zeroPctButton.isSelected = false
             tenPctButton.isSelected = false
             twentyPctButton.isSelected = true
-            tipAmount += 0.2
+            tipAmount = 0.2
             
         } else {
             
             zeroPctButton.isSelected = true
             tenPctButton.isSelected = false
             twentyPctButton.isSelected = false
-            tipAmount += 0.0
+            tipAmount = 0.0
         }
         
         
